@@ -7,7 +7,10 @@
         display: block;
       }
     </style>
-   
+  <template is="dom-repeat" items="{{prop1}}" as="person">
+        <div>First name: <span>{{person.first}}</span></div>
+        <div>Last name: <span>{{person.last}}</span></div>
+    </template>
   </template>
 
   <script>
@@ -17,9 +20,14 @@
 
       properties: {
         prop1: {
-          type: String
+          type: Object
+        
         },
       },
+      ready:function(){
+        this.prop1 = [{stickerName: "cookie", series: "default"}];
+          
+      }
 
     });
   </script>
