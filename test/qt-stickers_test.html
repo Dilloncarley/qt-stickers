@@ -1,0 +1,32 @@
+<!doctype html>
+
+<html>
+  <head>
+    <title>qt-stickers test</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+
+    <link rel="import" href="../qt-stickers.html">
+  </head>
+  <body>
+
+    <test-fixture id="basic">
+      <template>
+        <qt-stickers></qt-stickers>
+      </template>
+    </test-fixture>
+
+    <script>
+      suite('qt-stickers', function() {
+
+        test('instantiating the element works', function() {
+          var element = fixture('basic');
+          assert.equal(element.is, 'qt-stickers');
+        });
+
+      });
+    </script>
+  </body>
+</html>
