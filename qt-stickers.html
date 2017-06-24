@@ -3,13 +3,17 @@
 <dom-module id="qt-stickers">
   <template>
     <style>
-      :host {
+       :host {
         display: block;
       }
     </style>
-  <template is="dom-repeat" items="{{prop1}}" as="person">
-        <div>First name: <span>{{person.first}}</span></div>
-        <div>Last name: <span>{{person.last}}</span></div>
+    <template is="dom-repeat" items="{{stickers}}" as="sticker">
+      <div>
+        Sticker name: <span>{{sticker.name}}</span>
+      </div>
+      <div>
+        Series: <span>{{sticker.series}}</span>
+      </div>
     </template>
   </template>
 
@@ -19,14 +23,22 @@
       is: 'qt-stickers',
 
       properties: {
-        prop1: {
+        stickers: {
           type: Object
-        
+
         },
+        series: {
+          type: String
+        }
       },
-      ready:function(){
-        this.prop1 = [{stickerName: "cookie", series: "default"}];
-          
+      ready: function () {
+        switch(this.series){
+          case "default":
+             this.stickers = [{ name: "cookie", series: "default" }];
+             break;
+        }
+       
+
       }
 
     });
